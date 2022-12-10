@@ -1,0 +1,238 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    12/10/2022  13:56:13  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj TO .\Objects\bluetooth_controlled_home_automation 
+>> PRINT (.\Listings\bluetooth_controlled_home_automation.m51) CODE (0X0000-0X0FFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\bluetooth_controlled_home_automation (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     005CH     UNIT         ?PR?MAIN?MAIN
+            CODE    08E8H     0036H     UNIT         ?CO?MAIN
+            CODE    091EH     0027H     UNIT         ?PR?_DELAY?MAIN
+            CODE    0945H     0019H     UNIT         ?C?LIB_CODE
+            CODE    095EH     0017H     UNIT         ?PR?_SEND?MAIN
+            CODE    0975H     000CH     UNIT         ?PR?SERIALBEGIN?MAIN
+            CODE    0981H     0008H     UNIT         ?PR?_SERIALWRITE?MAIN
+            CODE    0989H     0005H     UNIT         ?PR?ISR_EX0?MAIN
+            CODE    098EH     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\bluetooth_controlled_home_automation (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?SERIALBEGIN?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/10/2022  13:56:13  PAGE 2
+
+
+?PR?_DELAY?MAIN
+  +--> ?PR?_SEND?MAIN
+
+?PR?_SEND?MAIN
+  +--> ?PR?_SERIALWRITE?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\bluetooth_controlled_home_automation (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:000AH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:095EH         PUBLIC        _Send
+  C:0925H         PUBLIC        _delay
+  C:0981H         PUBLIC        _Serialwrite
+  B:00A0H.0       PUBLIC        Fan
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:088CH         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/10/2022  13:56:13  PAGE 3
+
+
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  D:0008H         PUBLIC        str
+  C:0989H         PUBLIC        ISR_ex0
+  D:0009H         PUBLIC        a
+  C:0975H         PUBLIC        Serialbegin
+  B:00A0H.1       PUBLIC        Light
+  -------         PROC          _SERIALWRITE
+  D:0007H         SYMBOL        byte
+  C:0981H         LINE#         10
+  C:0981H         LINE#         11
+  C:0981H         LINE#         12
+  C:0983H         LINE#         13
+  C:0986H         LINE#         14
+  C:0988H         LINE#         15
+  -------         ENDPROC       _SERIALWRITE
+  -------         PROC          _SEND
+  D:0001H         SYMBOL        p
+  C:095EH         LINE#         16
+  C:095EH         LINE#         17
+  C:095EH         LINE#         18
+  C:0964H         LINE#         19
+  C:0964H         LINE#         20
+  C:0967H         LINE#         21
+  C:096EH         LINE#         22
+  C:0970H         LINE#         23
+  -------         ENDPROC       _SEND
+  -------         PROC          SERIALBEGIN
+  C:0975H         LINE#         25
+  C:0975H         LINE#         26
+  C:0975H         LINE#         27
+  C:0978H         LINE#         28
+  C:097BH         LINE#         29
+  C:097EH         LINE#         30
+  C:0980H         LINE#         31
+  -------         ENDPROC       SERIALBEGIN
+  -------         PROC          MAIN
+  C:088CH         LINE#         32
+  C:088CH         LINE#         33
+  C:088CH         LINE#         34
+  C:088FH         LINE#         35
+  C:0892H         LINE#         36
+  C:0898H         LINE#         37
+  C:089BH         LINE#         38
+  C:089BH         LINE#         39
+  C:089BH         LINE#         40
+  C:089EH         LINE#         41
+  C:08A1H         LINE#         42
+  C:08A4H         LINE#         43
+  C:08A6H         LINE#         44
+  C:08ABH         LINE#         45
+  C:08ABH         LINE#         46
+  C:08ADH         LINE#         47
+  C:08B3H         LINE#         48
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/10/2022  13:56:13  PAGE 4
+
+
+  C:08B3H         LINE#         49
+  C:08B5H         LINE#         50
+  C:08BAH         LINE#         51
+  C:08BAH         LINE#         52
+  C:08BCH         LINE#         53
+  C:08C2H         LINE#         54
+  C:08C2H         LINE#         55
+  C:08C4H         LINE#         56
+  C:08C9H         LINE#         57
+  C:08C9H         LINE#         58
+  C:08CBH         LINE#         59
+  C:08D1H         LINE#         60
+  C:08D1H         LINE#         61
+  C:08D3H         LINE#         62
+  C:08D8H         LINE#         63
+  C:08D8H         LINE#         64
+  C:08DAH         LINE#         65
+  C:08E0H         LINE#         66
+  C:08E3H         LINE#         67
+  C:08E3H         LINE#         68
+  C:08E6H         LINE#         69
+  -------         ENDPROC       MAIN
+  -------         PROC          L?0033
+  -------         ENDPROC       L?0033
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0925H         LINE#         71
+  C:0925H         LINE#         73
+  C:092FH         LINE#         74
+  C:093DH         LINE#         75
+  C:0944H         LINE#         76
+  -------         ENDPROC       _DELAY
+  -------         PROC          ISR_EX0
+  C:0989H         LINE#         77
+  C:0989H         LINE#         80
+  C:098BH         LINE#         81
+  C:098DH         LINE#         82
+  -------         ENDPROC       ISR_EX0
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?CLDPTR
+  C:0945H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00FEH BYTE (12%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=408
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

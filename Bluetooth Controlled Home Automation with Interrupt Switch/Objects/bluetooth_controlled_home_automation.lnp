@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\bluetooth_controlled_home_automation" 
+PRINT(".\Listings\bluetooth_controlled_home_automation.m51") CODE( 0X0000-0X0FFF )
